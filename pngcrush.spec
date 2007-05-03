@@ -1,11 +1,11 @@
 %define name pngcrush
-%define version 1.6.3
-%define release %mkrel 2
+%define version 1.6.4
+%define rel 1
 
 Name: %{name}
 Summary: Utility to compress pngs
 Version: %{version}
-Release: %{release}
+Release: %mkrel %{rel}
 Source: http://ovh.dl.sourceforge.net/sourceforge/pmt/%{name}-%{version}.tar.bz2
 Patch0: pngcrush-1.5.9-shared-zlib.patch
 Group: Graphics
