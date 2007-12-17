@@ -10,7 +10,6 @@ Source: http://ovh.dl.sourceforge.net/sourceforge/pmt/%{name}-%{version}.tar.bz2
 Patch0: pngcrush-1.5.9-shared-zlib.patch
 Group: Graphics
 URL: http://pmt.sourceforge.net/pngcrush/
-BuildRoot: %{_tmppath}/%{name}-buildroot
 License: GPL
 Buildrequires: zlib-devel
 
