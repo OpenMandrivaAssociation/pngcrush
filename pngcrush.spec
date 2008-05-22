@@ -1,17 +1,16 @@
 %define name pngcrush
-%define version 1.6.4
+%define version 1.6.6
 %define rel 1
 
 Name: %{name}
 Summary: Utility to compress pngs
 Version: %{version}
 Release: %mkrel %{rel}
-Source: http://ovh.dl.sourceforge.net/sourceforge/pmt/%{name}-%{version}.tar.bz2
-Patch0: pngcrush-1.5.9-shared-zlib.patch
+Source: http://ovh.dl.sourceforge.net/sourceforge/pmt/%{name}-%{version}.tar.lzma
 Group: Graphics
 URL: http://pmt.sourceforge.net/pngcrush/
 BuildRoot: %{_tmppath}/%{name}-buildroot
-License: GPL
+License: zlib
 Buildrequires: zlib-devel
 
 %description
@@ -22,22 +21,21 @@ compress them as much as 40% losslessly.
 rm -rf $RPM_BUILD_ROOT
 
 %setup -q
-#%patch0 -p1
+# Use Mandriva's default gcc, CFLAGS and LDFLAGS
+sed -i -e "s/gcc-4.3.0/gcc/" -e "/CFLAGS/d" -e "/LDFLAGS/d" Makefile
 
 %build
 
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make CFLAGS="%{optflags}"
 
 %install
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-install -m 0755 pngcrush $RPM_BUILD_ROOT%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+install -m 0755 pngcrush %{buildroot}%{_bindir}
 
 %clean
-rm -rf $RPM_BUILD_ROOT 
+rm -rf %{buildroot} 
 
 %files 
 %defattr(-,root,root)
 #%doc INSTALL.txt README.txt
 %{_bindir}/*
-
-
