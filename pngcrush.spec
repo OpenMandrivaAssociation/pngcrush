@@ -1,24 +1,19 @@
-%define name pngcrush
-%define version 1.6.6
-%define rel 1
-
-Name: %{name}
-Summary: Utility to compress pngs
-Version: %{version}
-Release: %mkrel %{rel}
-Source: http://ovh.dl.sourceforge.net/sourceforge/pmt/%{name}-%{version}.tar.lzma
-Group: Graphics
-URL: http://pmt.sourceforge.net/pngcrush/
-BuildRoot: %{_tmppath}/%{name}-buildroot
-License: zlib
-Buildrequires: zlib-devel
+Name:		pngcrush
+Summary:	Utility to compress pngs
+Version:	1.6.7
+Release:	%mkrel 1
+License:	zlib
+Group:		Graphics
+URL:		http://pmt.sourceforge.net/%{name}/
+Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}.tar.lzma
+Buildrequires:	zlib-devel
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 pngcrush is an optimizer for PNG (Portable Network Graphics) files. It can
 compress them as much as 40% losslessly.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 
 %setup -q
 # Use Mandriva's default gcc, CFLAGS and LDFLAGS
