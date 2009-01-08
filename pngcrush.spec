@@ -1,7 +1,7 @@
 Name:		pngcrush
 Summary:	Utility to compress PNG files
 Version:	1.6.13
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
@@ -29,6 +29,7 @@ sed -i -e "s/gcc-4.3.0/gcc/" Makefile
 %install
 mkdir -p %{buildroot}%{_bindir}
 install -m 0755 pngcrush %{buildroot}%{_bindir}
+chmod +r ChangeLog.txt
 
 %clean
 rm -rf %{buildroot} 
