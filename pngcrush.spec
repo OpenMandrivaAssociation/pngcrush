@@ -1,14 +1,15 @@
-Name:		pngcrush
 Summary:	Utility to compress PNG files
-Version:	1.6.13
-Release:	%mkrel 2
+Name:		pngcrush
+Version:	1.6.14
+Release:	%mkrel 1
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
 Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}.tar.lzma
 Buildrequires:	zlib-devel
 BuildRequires:	libpng-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires:	pkgconfig
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 pngcrush is an optimizer for PNG (Portable Network Graphics) files. It can
@@ -18,18 +19,18 @@ compress them as much as 40% losslessly.
 
 %setup -q
 
-# Use Mandriva's default gcc, CFLAGS and LDFLAGS
-sed -i -e "s/gcc-4.3.0/gcc/" Makefile
-# -e "/CFLAGS/d" -e "/LDFLAGS/d" Makefile
-
 %build
+# force using system headers
+rm -f z*.h crc32.h deflate.h inf*.h trees.h png*.h
+pngflags=$(pkg-config --cflags --libs libpng)
 
-%make CFLAGS="%{optflags}"
+gcc %{optflags} %{ldflags} -o pngcrush pngcrush.c $pngflags -lz
 
 %install
 mkdir -p %{buildroot}%{_bindir}
+
 install -m 0755 pngcrush %{buildroot}%{_bindir}
-chmod +r ChangeLog.txt
+chmod 644 ChangeLog.txt
 
 %clean
 rm -rf %{buildroot} 
