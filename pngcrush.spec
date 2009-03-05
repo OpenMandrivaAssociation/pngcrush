@@ -1,6 +1,6 @@
 Summary:	Utility to compress PNG files
 Name:		pngcrush
-Version:	1.6.14
+Version:	1.6.15
 Release:	%mkrel 1
 License:	zlib
 Group:		Graphics
