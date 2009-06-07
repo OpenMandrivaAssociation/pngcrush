@@ -1,11 +1,11 @@
 Summary:	Utility to compress PNG files
 Name:		pngcrush
-Version:	1.6.17
+Version:	1.6.19
 Release:	%mkrel 1
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
-Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}.tar.lzma
+Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}.tar.gz
 Buildrequires:	zlib-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
@@ -30,12 +30,12 @@ gcc %{optflags} %{ldflags} -o pngcrush pngcrush.c $pngflags -lz
 mkdir -p %{buildroot}%{_bindir}
 
 install -m 0755 pngcrush %{buildroot}%{_bindir}
-chmod 644 ChangeLog.txt
+chmod 644 ChangeLog*
 
 %clean
 rm -rf %{buildroot} 
 
 %files 
 %defattr(-,root,root)
-%doc ChangeLog.txt
+%doc ChangeLog.html
 %{_bindir}/*
