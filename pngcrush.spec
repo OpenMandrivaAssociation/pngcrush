@@ -1,11 +1,11 @@
 Summary:	Utility to compress PNG files
 Name:		pngcrush
-Version:	1.6.19
+Version:	1.7.0
 Release:	%mkrel 1
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
-Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}-nolib.tar.gz
 Buildrequires:	zlib-devel
 BuildRequires:	libpng-devel
 BuildRequires:	pkgconfig
@@ -17,7 +17,7 @@ compress them as much as 40% losslessly.
 
 %prep
 
-%setup -q
+%setup -q -n %{name}-%{version}-nolib
 
 %build
 # force using system headers
