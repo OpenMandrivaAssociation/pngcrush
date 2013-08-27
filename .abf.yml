@@ -1,2 +1,4 @@
+removed_sources:
+  pngcrush-1.7.32.tar.gz: 6bd8bc3c8ca54ea2134ceffb26937f1a2975bb56
 sources:
-  "pngcrush-1.7.32.tar.gz": 6bd8bc3c8ca54ea2134ceffb26937f1a2975bb56
+  pngcrush-1.7.67.tar.gz: 0779be0586c0b56bbf1bc9ed663721959b5e4803
