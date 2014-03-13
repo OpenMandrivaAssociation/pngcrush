@@ -20,7 +20,7 @@ rm z*.h crc32.h deflate.h inf*.h trees.h png*.h
 chmod 644 ChangeLog*
 
 %build
-gcc %{optflags} %{ldflags} -o pngcrush pngcrush.c $(pkg-config --cflags --libs libpng zlib) -lm
+gcc %{optflags} -O3 -funroll-loops -fomit-frame-pointer -Wall -Wshadow %{ldflags} -o pngcrush pngcrush.c $(pkg-config --cflags --libs libpng zlib) -lm
 
 %install
 install -m0755 %{name} -D %{buildroot}%{_bindir}/%{name}
