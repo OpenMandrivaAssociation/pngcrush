@@ -17,7 +17,7 @@ compress them as much as 40% losslessly.
 %setup -q
 # force using system headers
 rm z*.h crc32.h deflate.h inf*.h trees.h png*.h
-chmod 644 ChangeLog*
+chmod og+r *
 
 %build
 gcc %{optflags} -O3 -funroll-loops -fomit-frame-pointer -Wall -Wshadow %{ldflags} -o pngcrush pngcrush.c $(pkg-config --cflags --libs libpng zlib) -lm
