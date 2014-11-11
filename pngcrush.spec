@@ -1,7 +1,7 @@
 Summary:	Utility to compress PNG files
 Name:		pngcrush
-Version:	1.7.72
-Release:	3
+Version:	1.7.80
+Release:	1
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
@@ -20,7 +20,7 @@ rm z*.h crc32.h deflate.h inf*.h trees.h png*.h
 chmod og+r *
 
 %build
-gcc %{optflags} -O3 -funroll-loops -fomit-frame-pointer -Wall -Wshadow %{ldflags} -o pngcrush pngcrush.c $(pkg-config --cflags --libs libpng zlib) -lm
+%{__cc} %{optflags} -O3 -funroll-loops -fomit-frame-pointer -Wall -Wshadow %{ldflags} -o pngcrush pngcrush.c $(pkg-config --cflags --libs libpng zlib) -lm
 
 %install
 install -m0755 %{name} -D %{buildroot}%{_bindir}/%{name}
