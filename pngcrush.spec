@@ -1,7 +1,7 @@
 Summary:	Utility to compress PNG files
 Name:		pngcrush
 Version:	1.7.85
-Release:	2
+Release:	3
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
