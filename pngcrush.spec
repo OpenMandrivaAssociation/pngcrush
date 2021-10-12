@@ -5,7 +5,7 @@ Release:	3
 License:	zlib
 Group:		Graphics
 URL:		http://pmt.sourceforge.net/%{name}/
-Source0:	http://downloads.sourceforge.net/project/pmt/%{name}/%{version}/%{name}-%{version}.tar.xz
+Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}-nolib.tar.xz
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
 
@@ -14,14 +14,11 @@ pngcrush is an optimizer for PNG (Portable Network Graphics) files. It can
 compress them as much as 40% losslessly.
 
 %prep
-%autosetup -p1
-# force using system headers
-rm -f z*.h crc32.h deflate.h inf*.h trees.h png*.h
-chmod og+r *
+%autosetup -n %{name}-%{version}-nolib -p1
 
 %build
-%setup_compile_flags
-%make_build CFLAGS="%{optflags}" LDFLAGS="%{ldflags} $(pkg-config --cflags --libs libpng zlib) -lm"
+%set_build_flags
+%make_build CFLAGS="%{optflags}" LDFLAGS="%{build_ldflags} $(pkg-config --cflags --libs libpng zlib) -lm"
 
 %install
 install -m0755 %{name} -D %{buildroot}%{_bindir}/%{name}
