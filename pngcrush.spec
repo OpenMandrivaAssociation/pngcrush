@@ -4,7 +4,7 @@ Version:	1.8.13
 Release:	4
 License:	zlib
 Group:		Graphics
-URL:		http://pmt.sourceforge.net/%{name}/
+URL:		https://pmt.sourceforge.net/%{name}/
 Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}-nolib.tar.xz
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
