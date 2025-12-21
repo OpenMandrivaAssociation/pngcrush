@@ -6,6 +6,7 @@ License:	zlib
 Group:		Graphics
 URL:		https://pmt.sourceforge.net/%{name}/
 Source0:	http://downloads.sourceforge.net/pmt/%{name}-%{version}-nolib.tar.xz
+BuildRequires:	make
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpng)
 
